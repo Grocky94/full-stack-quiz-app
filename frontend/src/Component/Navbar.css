@@ -1,0 +1,61 @@
+#nav-screen {
+    height: 8vh;
+    width: 100%;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.1em;
+}
+
+#nav-add-quiz {
+    height: 5vh;
+    width: fit-content;
+    padding-left: 2px;
+    padding-right: 2px;
+    /* border: 1px solid #000; */
+    background-color: orangered;
+    color: aliceblue;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-left: 10%;
+}
+
+#nav-login-logout-div {
+    height: 100%;
+    width: 50%;
+    /* border: 1px solid #000; */
+    margin-left: auto;
+    margin-right: 0%;
+    display: flex;
+    align-items: center;
+}
+
+#nav-login-btn {
+    height: 5vh;
+    width: fit-content;
+    padding-left: 2px;
+    padding-right: 2px;
+    display: flex;
+    align-items: center;
+    background-color: chocolate;
+    margin-left: auto;
+    margin-right: 5%;
+    color: aliceblue;
+    border-radius: 5px;
+}
+
+#nav-logout-btn {
+    height: 5vh;
+    width: fit-content;
+    padding-left: 2px;
+    padding-right: 2px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 5%;
+    background-color: chocolate;
+    color: aliceblue;
+    border-radius: 5px;
+}

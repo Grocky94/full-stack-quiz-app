@@ -2,10 +2,10 @@ import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import cors from "cors"
-import { Login, Register } from "./controllers/userController.js";
+import cors from "cors";
+import { CurrentUser, Login, Register, SubmitAnswer } from "./controllers/userController.js";
 import { AddQuiz } from "./controllers/adminController.js";
-import { QuizPager } from "./controllers/QuizController.js";
+import { CheckAnswer, QuizPager, TotalQuiz } from "./controllers/QuizController.js";
 
 const app = express();
 
@@ -21,7 +21,11 @@ app.get("/", (req, res) => {
 app.post("/register", Register);
 app.post("/login", Login)
 app.post("/addQuiz", AddQuiz)
-app.get("/quizPager", QuizPager)
+app.post("/quizPager", QuizPager)
+app.get("/totalQuiz",TotalQuiz)
+app.post("/checkAnswer", CheckAnswer)
+app.post("/currentUser",CurrentUser)
+app.patch("/submitAnswer",SubmitAnswer)
 
 mongoose.connect(process.env.mongoDb_Url).then(() => { console.log("connect to MongoDB Atlas") }).catch((err) => { console.log(err.message) });
 

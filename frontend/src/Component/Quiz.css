@@ -1,0 +1,97 @@
+#quiz-screen {
+    height: 80vh;
+    width: 100%;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#quiz-div {
+    /* height: 35vh; */
+    width: 40%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#count-down {
+    height: 5vh;
+    width: 100%;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+#quiz-question {
+    height: fit-content;
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: 600;
+    /* border: 1px solid #000; */
+}
+
+#option-screen {
+    /* height: 15vh; */
+    width: 100%;
+    /* border: 1px solid #000; */
+    display: grid;
+    grid-column: 2;
+    box-sizing: border-box;
+}
+
+.ans-option {
+    height: 8vh;
+    width: 100%;
+    /* border: 1px solid #000; */
+    display: flex;
+}
+
+.sub-option {
+    height: 100%;
+    width: 50%;
+    border: 1px solid #000;
+}
+
+.sub-option:hover {
+    background-color: lightskyblue;
+    /* color: white; */
+    transition-duration: 200ms;
+}
+
+
+#btn-div {
+    height: 8vh;
+    width: 100%;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#reset-btn {
+    height: 5vh;
+    padding: 2;
+    background-color: orangered;
+    border: none;
+    margin-left: 1%;
+    color: white;
+}
+
+#save-next-btn {
+    height: 5vh;
+    padding: 2;
+    background-color: green;
+    border: none;
+    color: white;
+}
+
+#exit-btn {
+    height: 5vh;
+    padding: 2;
+    background-color: red;
+    border: none;
+    margin-right: 1%;
+    color: white;
+}

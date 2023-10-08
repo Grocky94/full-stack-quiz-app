@@ -1,0 +1,56 @@
+#reg-screen {
+    height: 100vh;
+    width: 100%;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#reg-div {
+    /* height: 45vh; */
+    width: 40%;
+    border: 1px solid #000;
+}
+
+#reg-headline {
+    text-align: center;
+}
+
+.reg-label {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-left: 5%;
+}
+
+.reg-input {
+    height: 5vh;
+    width: 90%;
+    margin-left: 5%;
+    outline: none;
+}
+
+#reg-select {
+    height: 4vh;
+    width: 92%;
+    margin: 5%;
+    font-weight: 600;
+    outline: none;
+}
+
+#reg-submit-btn {
+    height: 5vh;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 2% 45%;
+    background-color: coral;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+}
+
+#reg-last {
+    text-align: center;
+    color: #000;
+}

@@ -4,10 +4,12 @@ import Quiz from "../model/QuizModel.js";
 
 export const AddQuiz = async (req, res) => {
     try {
-        const { question, option1, option2, option3, option4, answer, token } = req.body;
+        const { question, option1, option2, option3, option4, answer } = req.body.userData;
+        const { token } = req.body
+        console.log(question, option1, option2, option3, option4, answer, token)
         if (!question || !option1 || !option2 || !option3 || !option4 || !answer || !token) return res.status(404).json({ success: false, message: "all fields are  required" })
         const decodedData = jwt.verify(token, process.env.JWT_SECRET);
-        console.log(decodedData, "decode")
+        // console.log(decodedData, "decode")
 
         const userId = decodedData?.userId;
         const user = await User.findById(userId);

@@ -1,0 +1,14 @@
+#home-screen {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000;
+}
+#start-btn{
+    height: 5vh;
+    width: 10%;
+    outline: none;
+    background-color: orange;
+}

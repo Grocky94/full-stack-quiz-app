@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import axios from "axios"
-
+import "./Register.css"
+import { useNavigate } from "react-router-dom"
 const Register = () => {
   const [userData, setUserData] = useState({ name: "", email: "", password: "", role: "" });
-  // console.log(userData)
+  const redirect = useNavigate()
   const handleChange = (event) => {
     setUserData({ ...userData, [event.target.name]: event.target.value })
   }
@@ -16,8 +17,9 @@ const Register = () => {
         if (response?.data?.success) {
           alert(response.data.message)
           setUserData({ name: "", email: "", password: "", role: "" })
+          redirect('/')
         } else {
-          alert(response.data.message)
+          alert(response.error.data.message)
 
         }
       } catch (error) {
@@ -30,22 +32,24 @@ const Register = () => {
   }
 
   return (
-    <div>
-      <div>
+    <div id='reg-screen'>
+      <div id='reg-div'>
+        <h1 id='reg-headline'>Register</h1>
         <form onSubmit={handleSubmit}>
-          <label >Name:</label><br />
-          <input type='text' name='name' onChange={handleChange} value={userData.name} /><br />
-          <label >Email:</label><br />
-          <input type='email' name='email' onChange={handleChange} value={userData.email} /><br />
-          <label >password:</label><br />
-          <input type='password' name='password' onChange={handleChange} value={userData.password} /><br />
-          <select onChange={handleChange} name='role'>
-            <option></option>
+          <label className='reg-label'>Name:</label><br />
+          <input className="reg-input" type='text' name='name' onChange={handleChange} value={userData.name} /><br />
+          <label className='reg-label' >Email:</label><br />
+          <input className="reg-input" type='email' name='email' onChange={handleChange} value={userData.email} /><br />
+          <label className='reg-label' >Password:</label><br />
+          <input className="reg-input" type='password' name='password' onChange={handleChange} value={userData.password} /><br />
+          <select id="reg-select" onChange={handleChange} name='role'>
+            <option>Select Role</option>
             <option value="Admin">Admin</option>
             <option value="User">User</option>
           </select><br />
-          <input type='submit' value="Register" />
+          <input id="reg-submit-btn" type='submit' value="Register" />
         </form>
+        <p id='reg-last'>If already an user <b onClick={() => redirect('/login')}>Login</b></p>
       </div>
     </div>
   )
