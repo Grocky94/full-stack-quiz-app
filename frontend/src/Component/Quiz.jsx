@@ -120,12 +120,12 @@ const Quiz = () => {
                                 </div>
                                 <div className='ans-option'>
                                     <div className='sub-option' style={{
-                                        backgroundColor: selectedOptions == "option3" ? 'lightskyblue' : 'transparent',
+                                        backgroundColor: selectedOptions == "option3" ? 'lightskyblue' : '',
                                         color: selectedOptions == "option3" ? 'white' : 'black',
                                     }}
                                         onClick={() => setSelectedOptions("option3")}>{Quiz.option3}</div>
                                     <div className='sub-option' style={{
-                                        backgroundColor: selectedOptions == "option4" ? 'lightskyblue' : 'transparent',
+                                        backgroundColor: selectedOptions == "option4" ? 'lightskyblue' : '',
                                         color: selectedOptions == "option4" ? 'white' : 'black',
                                     }}
                                         onClick={() => setSelectedOptions("option4")}>{Quiz.option4}</div>
