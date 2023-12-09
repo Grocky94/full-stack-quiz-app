@@ -1,5 +1,5 @@
 import User from "../model/UserModel.js";
-import bcrypt from "bcrypt";
+import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 // import Quiz from "../model/QuizModel.js";
 
@@ -17,7 +17,7 @@ export const Register = async (req, res) => {
             return res.status(404).json({ success: false, message: "email already used , try different email" })
 
         }
-        const hashPassword = await bcrypt.hash(password, 10)
+        const hashPassword = await bcryptjs.hash(password, 10)
         const user = new User({ name, email, password: hashPassword, role, result })
         await user.save();
         return res.status(200).json({ success: true, message: "user registered", user });
@@ -34,7 +34,7 @@ export const Login = async (req, res) => {
         const user = await User.findOne({ email })
         if (!user) return res.status.json({ success: false, message: "email id not found" });
 
-        const isPasswordRight = await bcrypt.compare(password, user.password);
+        const isPasswordRight = await bcryptjs.compare(password, user.password);
 
         if (isPasswordRight) {
             const userObj = {
