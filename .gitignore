@@ -43,13 +43,13 @@ build/Release
 jspm_packages/
 
 # Snowpack dependency directory (https://snowpack.dev/)
-web_modules/
+# web_modules/
 
 # TypeScript cache
 *.tsbuildinfo
 
 # Optional npm cache directory
-.npm
+# .npm
 
 # Optional eslint cache
 .eslintcache
@@ -123,7 +123,7 @@ dist
 .vscode-test
 
 # yarn v2
-.yarn/cache
+# .yarn/cache
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
