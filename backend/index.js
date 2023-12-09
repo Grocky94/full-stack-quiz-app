@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import { CurrentUser, Login, Register, SubmitAnswer } from "./controllers/userController.js";
-import { AddQuiz } from "./controllers/adminController.js";
+import { AddQuiz } from "./controllers/AdminController.js";
 import { CheckAnswer, QuizPager, TotalQuiz } from "./controllers/QuizController.js";
 
 const app = express();
