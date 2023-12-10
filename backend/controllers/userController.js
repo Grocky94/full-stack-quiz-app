@@ -1,5 +1,5 @@
 import User from "../model/UserModel.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 // import Quiz from "../model/QuizModel.js";
 
