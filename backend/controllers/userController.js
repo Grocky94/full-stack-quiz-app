@@ -1,5 +1,5 @@
 import User from "../model/UserModel.js";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 // import Quiz from "../model/QuizModel.js";
 
@@ -123,7 +123,7 @@ export const SubmitAnswer = async (req, res) => {
             return res.status(404).json({ success: false, message: "user not found" })
         }
 
-        return res.status(200).json({ success: true, result: submited.result, message:" Submitted successfully" })
+        return res.status(200).json({ success: true, result: submited.result, message: " Submitted successfully" })
 
     } catch (error) {
         return res.status(500).json({ success: false, message: error.message })
