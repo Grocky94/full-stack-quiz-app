@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./Quiz.css"
+// import "./CircleTimer.css"
 import axios from 'axios'
 import { QuizContext } from '../context/QuizHolder';
 import { useNavigate } from "react-router-dom"
@@ -38,27 +39,13 @@ const Quiz = () => {
         Checker()
     }, [])
 
-    //pending with countDown timmer 
-
     // useEffect(() => {
-    //     const countDown = () => {
-    //         let myInterval = setInterval(() => {
-    //             if (seconds > 0) {
-    //                 setSeconds(seconds - 1); 
-    //             } else {
-    //                 clearInterval(myInterval); 
-    //             }
-    //         }, 1000);
-    //         return () => {
-    //             clearInterval(myInterval);
-    //         };
-    //     };
-    //     if (seconds > 0) {
-    //         // countDown();
-    //     }
-    // }, [seconds]);
+    //     seconds > 0 && setTimeout(() => setSeconds(seconds - 1), 1000);
+    // }, [seconds])
 
-
+    // const timerStyle = {
+    //     animationDuration: '30s', // Same as initial timer value
+    // };
 
     const saveHandler = async (id, selectedOption) => {
         try {
@@ -97,7 +84,18 @@ const Quiz = () => {
 
     return (
         <>
-            <div id='count-down'>Count Down :</div>
+            {/* circle Timer div  */}
+            {/* <div className="circle-timer">
+                <div className="circle" style={timerStyle}>
+                    <div className="mask full">
+                        <div className="fill" style={{ animationDuration: `${30 - seconds}s` }}></div>
+                    </div>
+                    <div className="mask half">
+                        <div className="fill" style={{ animationDuration: `${15 - seconds / 2}s` }}></div>
+                    </div>
+                    <div className="inside-circle">{seconds}</div>
+                </div> */}
+            {/* </div> */}
             <div id='quiz-screen'>
                 {quizzes && quizzes.map((Quiz) => (
                     <>
