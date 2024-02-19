@@ -2,3 +2,4 @@
     from = "/*"
     to = "Public/index.html"
     status = 200
+
