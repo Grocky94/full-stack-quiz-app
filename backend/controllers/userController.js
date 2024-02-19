@@ -1,5 +1,5 @@
 import User from "../model/UserModel.js";
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import jwt from "jsonwebtoken";
 // import Quiz from "../model/QuizModel.js";
 
@@ -98,7 +98,7 @@ export const CurrentUser = async (req, res) => {
 
 
     } catch (error) {
-        return res.status(500).json({ success: false, message: error.message })
+        return res.status(500).json({ success: false, message: error.message });
         console.log(error)
     }
 }
