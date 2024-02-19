@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./Quiz.css"
 // import "./CircleTimer.css"
+import config from '../config';
 import axios from 'axios'
 import { QuizContext } from '../context/QuizHolder';
 import { useNavigate } from "react-router-dom"
@@ -15,7 +16,7 @@ const Quiz = () => {
     useEffect(() => {
         const quizPager = async () => {
             try {
-                const response = await axios.post("http://localhost:5000/quizPager", { page: page })
+                const response = await axios.post(`${config.backendUrl}/quizPager`, { page: page })
                 if (response.data.success) {
                     setQuizzes(response.data.Quiz)
                 } else {
@@ -37,7 +38,7 @@ const Quiz = () => {
             }
         }
         Checker()
-    }, [])
+    }, [redirect])
 
     // useEffect(() => {
     //     seconds > 0 && setTimeout(() => setSeconds(seconds - 1), 1000);
@@ -49,7 +50,7 @@ const Quiz = () => {
 
     const saveHandler = async (id, selectedOption) => {
         try {
-            const response = await axios.post("http://localhost:5000/checkAnswer", { _id: id, option: selectedOption });
+            const response = await axios.post(`${config.backendUrl}/checkAnswer`, { _id: id, option: selectedOption });
             if (response.data.success) {
                 setAns((prev) => prev + 1)
                 setSelectedOptions('')
@@ -58,9 +59,9 @@ const Quiz = () => {
             // } else {
             //     alert(" Answer given")
             // }
-            const finder = await axios.get("http://localhost:5000/totalQuiz")
+            const finder = await axios.get(`${config.backendUrl}/totalQuiz`)
             let quizLength = finder.data.Quiz.length
-            if (page == quizLength) {
+            if (page === quizLength) {
                 redirect('/result')
             } else {
                 setPage((prev) => prev + 1)
@@ -106,25 +107,25 @@ const Quiz = () => {
                             <div id='option-screen'>
                                 <div className='ans-option'>
                                     <div className='sub-option' style={{
-                                        backgroundColor: selectedOptions == "option1" ? 'lightskyblue' : '',
-                                        color: selectedOptions == "option1" ? 'white' : 'black',
+                                        backgroundColor: selectedOptions === "option1" ? 'lightskyblue' : '',
+                                        color: selectedOptions === "option1" ? 'white' : 'black',
                                     }}
                                         onClick={() => setSelectedOptions("option1")}>{Quiz.option1}</div>
                                     <div className='sub-option' style={{
-                                        backgroundColor: selectedOptions == "option2" ? 'lightskyblue' : '',
-                                        color: selectedOptions == "option2" ? 'white' : 'black',
+                                        backgroundColor: selectedOptions === "option2" ? 'lightskyblue' : '',
+                                        color: selectedOptions === "option2" ? 'white' : 'black',
                                     }}
                                         onClick={() => setSelectedOptions("option2")}>{Quiz.option2}</div>
                                 </div>
                                 <div className='ans-option'>
                                     <div className='sub-option' style={{
-                                        backgroundColor: selectedOptions == "option3" ? 'lightskyblue' : '',
-                                        color: selectedOptions == "option3" ? 'white' : 'black',
+                                        backgroundColor: selectedOptions === "option3" ? 'lightskyblue' : '',
+                                        color: selectedOptions === "option3" ? 'white' : 'black',
                                     }}
                                         onClick={() => setSelectedOptions("option3")}>{Quiz.option3}</div>
                                     <div className='sub-option' style={{
-                                        backgroundColor: selectedOptions == "option4" ? 'lightskyblue' : '',
-                                        color: selectedOptions == "option4" ? 'white' : 'black',
+                                        backgroundColor: selectedOptions === "option4" ? 'lightskyblue' : '',
+                                        color: selectedOptions === "option4" ? 'white' : 'black',
                                     }}
                                         onClick={() => setSelectedOptions("option4")}>{Quiz.option4}</div>
                                 </div>

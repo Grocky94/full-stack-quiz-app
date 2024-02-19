@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios"
 import "./Register.css"
 import { useNavigate } from "react-router-dom"
+import config from '../config'
 
 const Register = () => {
   const [userData, setUserData] = useState({ name: "", email: "", password: "", role: "" });
@@ -14,7 +15,7 @@ const Register = () => {
     event.preventDefault();
     if (userData.name && userData.email && userData.password && userData.role) {
       try {
-        const response = await axios.post("http://localhost:5000/register", { userData })
+        const response = await axios.post(`${config.backendUrl}/register`, { userData })
         if (response?.data?.success) {
           alert(response.data.message)
           setUserData({ name: "", email: "", password: "", role: "" })

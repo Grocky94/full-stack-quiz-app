@@ -15,14 +15,14 @@
     overflow: hidden;
 }
 
-#count-down {
+/* #count-down {
     height: 5vh;
     width: 100%;
     border: 1px solid #000;
     display: flex;
     align-items: center;
     justify-content: end;
-}
+} */
 
 #quiz-question {
     height: fit-content;
@@ -35,7 +35,7 @@
 #option-screen {
     /* height: 15vh; */
     width: 100%;
-    /* border: 1px solid #000; */
+    border: 1px solid #000;
     display: grid;
     grid-column: 2;
     box-sizing: border-box;

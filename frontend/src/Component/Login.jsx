@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Login.css"
 import { useNavigate } from "react-router-dom"
 import { QuizContext } from '../context/QuizHolder';
+import config from '../config';
 const Login = () => {
     const [userData, setUserData] = useState({ email: "", password: "" });
     const { dispatch } = useContext(QuizContext)
@@ -14,7 +15,7 @@ const Login = () => {
         event.preventDefault();
         if (userData.email && userData.password) {
             try {
-                const response = await axios.post("http://localhost:5000/login", { userData })
+                const response = await axios.post(`${config.backendUrl}/login`, { userData })
                 if (response.data.success) {
                     alert(response.data.message)
                     localStorage.setItem("token", JSON.stringify(response.data.token))
@@ -43,7 +44,7 @@ const Login = () => {
             }
         }
         Checker()
-    }, [])
+    }, [redirect])
 
     return (
         <div id='login-screen'>

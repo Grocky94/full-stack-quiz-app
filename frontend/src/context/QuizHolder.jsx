@@ -1,5 +1,6 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import axios from "axios";
+import config from "../config";
 
 export const QuizContext = createContext();
 
@@ -27,7 +28,7 @@ const QuizHolder = ({ children }) => {
             const token = JSON.parse(localStorage.getItem("token"))
             if (token) {
                 try {
-                    let response = await axios.post("http://localhost:5000/currentUser", { token })
+                    let response = await axios.post(`${config.backendUrl}/currentUser`, { token })
                     if (response?.data?.success) {
                         dispatch({
                             type: "Login",

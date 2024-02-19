@@ -11,7 +11,7 @@ const Home = () => {
   const start = () => {
     // alert("working")
     if (state?.user) {
-      if (state?.user?.role == "User") {
+      if (state?.user?.role === "User") {
         redirect("/Quiz")
       }
     } else {

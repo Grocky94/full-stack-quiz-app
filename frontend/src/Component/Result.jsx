@@ -3,7 +3,7 @@ import "./Result.css"
 import { useNavigate } from 'react-router-dom'
 import { QuizContext } from '../context/QuizHolder'
 import axios from 'axios'
-
+import config from '../config'
 const Result = () => {
     const { ans, setAns } = useContext(QuizContext)
     const [total, setTotal] = useState(0)
@@ -12,7 +12,7 @@ const Result = () => {
     const submit = async () => {
         try {
             let token = JSON.parse(localStorage.getItem("token"))
-            let submition = await axios.patch("http://localhost:5000/submitAnswer", { token, ans })
+            let submition = await axios.patch(`${config.backendUrl}/submitAnswer`, { token, ans })
             if (submition.data.success) {
                 alert(submition.data.message)
                 alert("thank you for playing")
@@ -24,7 +24,7 @@ const Result = () => {
     useEffect(() => {
         const totalQuiz = async () => {
             try {
-                const finder = await axios.get("http://localhost:5000/totalQuiz")
+                const finder = await axios.get(`${config.backendUrl}/totalQuiz`)
                 if (finder.data.Quiz) {
                     let quizLength = finder.data.Quiz.length
                     setTotal(quizLength)

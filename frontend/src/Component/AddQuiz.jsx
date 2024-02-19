@@ -3,9 +3,10 @@ import axios from 'axios'
 import { QuizContext } from '../context/QuizHolder'
 import { useNavigate } from 'react-router-dom'
 import "./AddQuiz.css"
+import config from '../config'
 const AddQuiz = () => {
     const { state } = useContext(QuizContext)
-    const redirect = useNavigate()
+    const routing = useNavigate()
     const [userData, setUserData] = useState({ question: "", option1: "", option2: "", option3: "", option4: "", answer: "" })
 
     const handleChange = (event) => {
@@ -18,7 +19,7 @@ const AddQuiz = () => {
             try {
                 const token = JSON.parse(localStorage.getItem("token"))
                 if (token) {
-                    const response = await axios.post("http://localhost:5000/addQuiz",
+                    const response = await axios.post(`${config.backendUrl}/addQuiz`,
                         { userData, token })
                     if (response?.data?.success) {
                         alert(response.data.message)
@@ -40,11 +41,11 @@ const AddQuiz = () => {
 
     useEffect(() => {
         if (state && state.user) {
-            if (state.user.role == 'Admin') {
+            if (state.user.role === 'Admin') {
                 //show them this page
             } else {
                 alert('Page not accessible');
-                redirect('/');
+                routing('/');
             }
         }
     }, [state]);
