@@ -21,7 +21,7 @@ const Navbar = () => {
 
     return (
         <div id='nav-screen'>
-            {state?.user?.role == "Admin" ? <div id='nav-add-quiz' onClick={() => redirect('/add-quiz')}>Add Quiz</div> : null}
+            {state?.user?.role === "Admin" ? <div id='nav-add-quiz' onClick={() => redirect('/add-quiz')}>Add Quiz</div> : null}
             <div id='nav-login-logout-div'>
                 {!state?.user ? (<div id='nav-login-btn' onClick={() => redirect("/login")}>Login</div>) :
                     (<div id='nav-logout-btn' onClick={logOut}>Logout</div>)}
