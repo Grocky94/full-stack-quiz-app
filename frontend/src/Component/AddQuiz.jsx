@@ -48,7 +48,7 @@ const AddQuiz = () => {
                 routing('/');
             }
         }
-    }, [state]);
+    }, [state, routing]);
 
     return (
         <div id='add-quiz-screen'>
