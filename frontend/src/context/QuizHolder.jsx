@@ -4,7 +4,11 @@ import config from "../config";
 
 export const QuizContext = createContext();
 
-const initialvalue = { user: null, right: 0 };
+const initialvalue = {
+    user: null, 
+    right: parseInt(localStorage.getItem("ans")) || 0,
+    page: parseInt(localStorage.getItem("page")) || 1
+};
 const reducer = (state, action) => {
     switch (action.type) {
         case "Login": {
@@ -21,8 +25,9 @@ const reducer = (state, action) => {
     }
 }
 const QuizHolder = ({ children }) => {
-    const [ans, setAns] = useState(0);
-    const [state, dispatch] = useReducer(reducer, initialvalue)
+    const [ans, setAns] = useState(initialvalue.right);
+    const [page, setPage] = useState(initialvalue.page);
+    const [state, dispatch] = useReducer(reducer, initialvalue);
     useEffect(() => {
         async function getCurrentUser() {
             const token = JSON.parse(localStorage.getItem("token"))
@@ -34,6 +39,7 @@ const QuizHolder = ({ children }) => {
                             type: "Login",
                             payload: response?.data?.user,
                             ans,
+                            page
                         })
 
                     }
@@ -58,7 +64,7 @@ const QuizHolder = ({ children }) => {
     }, [ans])
 
     return (
-        <QuizContext.Provider value={{ ans, state, dispatch, setAns }}>
+        <QuizContext.Provider value={{ ans, state, page, dispatch, setAns, setPage }}>
             {children}
         </QuizContext.Provider>
     )

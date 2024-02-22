@@ -6,9 +6,15 @@
     justify-content: center;
     border: 1px solid #000;
 }
-#start-btn{
+
+#start-btn {
     height: 5vh;
-    width: 10%;
+    width: 100px;
     outline: none;
-    background-color: orange;
+    color: white;
+    background-color: #944E63;
+}
+
+#start-btn:active {
+    background-color: #CAA6A6;
 }

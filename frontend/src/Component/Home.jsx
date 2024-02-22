@@ -4,15 +4,16 @@ import { QuizContext } from '../context/QuizHolder';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const { state } = useContext(QuizContext)
-
+  const { state } = useContext(QuizContext);
   const redirect = useNavigate()
 
   const start = () => {
     // alert("working")
     if (state?.user) {
       if (state?.user?.role === "User") {
-        redirect("/Quiz")
+        redirect("/Quiz");
+      } else {
+        alert("Only user will be able to start this !!")
       }
     } else {
       alert("need to login first ")

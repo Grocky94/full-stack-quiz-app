@@ -1,25 +1,54 @@
 #nav-screen {
     height: 8vh;
     width: 100%;
-    border: 1px solid #000;
+    border: 1px solid #CAA6A6;
     display: flex;
     align-items: center;
     justify-content: space-around;
     font-size: 1.1em;
+    box-sizing: border-box;
+}
+
+#hamburger {
+    display: none;
+    margin-left: 2%;
+    font-size: larger;
+    color: #944E63;
 }
 
 #nav-add-quiz {
     height: 5vh;
-    width: fit-content;
+    width: 100px;
     padding-left: 2px;
     padding-right: 2px;
-    /* border: 1px solid #000; */
-    background-color: orangered;
-    color: aliceblue;
+    background-color: #944E63;
+    color: white;
     border-radius: 5px;
     display: flex;
     align-items: center;
-    margin-left: 10%;
+    justify-content: center;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+#nav-home-btn {
+    height: 5vh;
+    width: 100px;
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: #944E63;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+
+#nav-add-quiz :active {
+    background-color: #B47B84;
 }
 
 #nav-login-logout-div {
@@ -39,11 +68,21 @@
     padding-right: 2px;
     display: flex;
     align-items: center;
-    background-color: chocolate;
+    background-color: #944E63;
     margin-left: auto;
     margin-right: 5%;
-    color: aliceblue;
+    color: white;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+#nav-login-btn:active {
+    background-color: #B47B84;
 }
 
 #nav-logout-btn {
@@ -55,7 +94,105 @@
     align-items: center;
     margin-left: auto;
     margin-right: 5%;
-    background-color: chocolate;
-    color: aliceblue;
+    background-color: #944E63;
+    color: white;
+    cursor: pointer;
     border-radius: 5px;
+}
+
+#nav-logout-btn :active {
+    background-color: #B47B84;
+
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+
+
+    #hamburger {
+        display: block;
+        margin-left: 5%;
+        margin-right: auto;
+        font-size: larger;
+        color: #944E63;
+    }
+
+    #nav-login-logout-div {
+        display: none;
+    }
+
+    .slider {
+        height: 100vh;
+        width: 30%;
+        border: 1px solid #CAA6A6;
+        position: absolute;
+        top: 5%;
+        left: 8%;
+        background-color: #B47B84;
+    }
+
+    .backLogo {
+        height: 8vh;
+        width: 100%;
+        border: 1px solid #CAA6A6;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    #Icon-back {
+        color: white;
+        margin-left: 15%;
+    }
+
+    #nav-login-logout-div-mediaQuery {
+        height: 15%;
+        width: 100%;
+        border: 1px solid #CAA6A6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #nav-login-btn {
+        height: 5vh;
+        width: 50px;
+        margin: auto;
+        padding-left: 2px;
+        padding-right: 2px;
+        background-color: #944E63;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #nav-logout-btn {
+        height: 5vh;
+        width: 60px;
+        padding-left: 2px;
+        padding-right: 2px;
+        margin: auto;
+        background-color: #944E63;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    #nav-add-quiz {
+        width: 70px;
+        font-size: medium;
+        margin-right: 5%;
+        margin-left: auto;
+    }
+
+    #nav-home-btn {
+        width: 70px;
+        font-size: medium;
+        margin-right: 5%;
+        margin-left: auto;
+    }
+}
+@media only screen and (max-width: 320px) {
+    #nav-screen {
+        display: none;
+    }
 }

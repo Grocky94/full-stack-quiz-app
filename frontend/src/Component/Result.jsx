@@ -5,7 +5,7 @@ import { QuizContext } from '../context/QuizHolder'
 import axios from 'axios'
 import config from '../config'
 const Result = () => {
-    const { ans, setAns } = useContext(QuizContext)
+    const { ans, setAns, setPage } = useContext(QuizContext)
     const [total, setTotal] = useState(0)
     const redirect = useNavigate()
 
@@ -15,7 +15,7 @@ const Result = () => {
             let submition = await axios.patch(`${config.backendUrl}/submitAnswer`, { token, ans })
             if (submition.data.success) {
                 alert(submition.data.message)
-                alert("thank you for playing")
+                alert("thank you for playing");
             }
         } catch (error) {
             console.log(error.message)
@@ -39,15 +39,23 @@ const Result = () => {
 
     const playAgain = () => {
         setAns(0);
+        setPage(1);
         redirect('/Quiz')
     }
     return (
         <div id='res-screen'>
             <div id='res-div'>
-                <h1 id='res-headline'>Result</h1>
-                <p id='res-statement'>{ans} are correct out of {total}</p>
-                <button id='play-agin-btn' onClick={playAgain}>Play Again</button>
-                <button id='submit-btn' onClick={submit}>Submit</button>
+                <div id='res-headline-holder'>
+                    <h1 id='res-headline'>Result</h1>
+                </div>
+                <div id='res-statement-holder'>
+                    <p id='res-statement'>{ans} are correct out of {total}</p>
+                </div>
+                <div id='res-btn-holder'>
+                    <button id='play-agin-btn' onClick={playAgain}>Play Again</button>
+                    <button id='submit-btn' onClick={submit}>Submit</button>
+                </div>
+
             </div>
         </div>
     )

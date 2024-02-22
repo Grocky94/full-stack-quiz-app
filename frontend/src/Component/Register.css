@@ -1,56 +1,89 @@
-#reg-screen {
-    height: 100vh;
-    width: 100%;
-    border: 1px solid #000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+ #reg-screen {
+     height: 80vh;
+     width: 100%;
+     border: 1px solid #CAA6A6;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
 
-#reg-div {
-    /* height: 45vh; */
-    width: 40%;
-    border: 1px solid #000;
-}
+ #reg-div {
+     /* height: 45vh; */
+     width: 40%;
+     border: 1px solid #CAA6A6;
+ }
 
-#reg-headline {
-    text-align: center;
-}
+ #reg-headline {
+     text-align: center;
+     color: #944E63;
+ }
 
-.reg-label {
-    font-size: 1.1em;
-    font-weight: 600;
-    margin-left: 5%;
-}
+ .reg-label {
+     font-size: 1.1em;
+     font-weight: 600;
+     margin-left: 5%;
+     color: #944E63;
+ }
 
-.reg-input {
-    height: 5vh;
-    width: 90%;
-    margin-left: 5%;
-    outline: none;
-}
+ .reg-input {
+     height: 5vh;
+     width: 90%;
+     margin-left: 5%;
+     outline: none;
+ }
 
-#reg-select {
-    height: 4vh;
-    width: 92%;
-    margin: 5%;
-    font-weight: 600;
-    outline: none;
-}
+ #reg-select {
+     height: 4vh;
+     width: 90%;
+     margin: 5%;
+     color: #944E63;
+     font-weight: 600;
+     outline: none;
+ }
 
-#reg-submit-btn {
-    height: 5vh;
-    width: fit-content;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin: 2% 45%;
-    background-color: coral;
-    color: aliceblue;
-    border: none;
-    border-radius: 5px;
-}
+ #reg-submit-btn {
+     height: 5vh;
+     width: 70px;
+     padding-left: 5px;
+     padding-right: 5px;
+     margin: 2% 45%;
+     background-color: #944E63;
+     cursor: pointer;
+     color: white;
+     border: none;
+     border-radius: 5px;
+ }
 
-#reg-last {
-    text-align: center;
-    color: #000;
-}
+ #reg-submit-btn:active {
+     background-color: #CAA6A6;
+ }
+
+ #reg-last {
+     text-align: center;
+     color: #944E63;
+     cursor: pointer;
+ }
+
+ @media only screen and (min-width: 600px) and (max-width: 900px) {
+     /*  */
+ }
+
+ @media only screen and (min-width: 320px) and (max-width: 480px) {
+
+     /*  */
+     #reg-div {
+         width: 100%;
+         height: 100%;
+         line-height: 45px;
+     }
+
+     #reg-submit-btn {
+         margin: 2% 40%;
+     }
+ }
+
+ @media only screen and (max-width: 320px) {
+     #reg-screen {
+         display: none;
+     }
+ }

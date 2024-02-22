@@ -6,8 +6,10 @@ import { QuizContext } from '../context/QuizHolder';
 import config from '../config';
 const Login = () => {
     const [userData, setUserData] = useState({ email: "", password: "" });
-    const { dispatch } = useContext(QuizContext)
+    const { dispatch } = useContext(QuizContext);
     const redirect = useNavigate()
+    const [loader, setLoader] = useState(false)
+
     const handleChange = (event) => {
         setUserData({ ...userData, [event.target.name]: event.target.value })
     }
@@ -15,6 +17,7 @@ const Login = () => {
         event.preventDefault();
         if (userData.email && userData.password) {
             try {
+                setLoader(true);
                 const response = await axios.post(`${config.backendUrl}/login`, { userData })
                 if (response.data.success) {
                     alert(response.data.message)
@@ -26,10 +29,12 @@ const Login = () => {
                     setUserData({ email: "", password: "" })
                     redirect('/')
                 } else {
-                    alert(response.data.message)
+                    alert(response.error.data.message)
                 }
             } catch (error) {
-                alert(error.message)
+                alert(error.response.data.message)
+            } finally {
+                setLoader(false);
             }
 
         } else {
@@ -48,17 +53,18 @@ const Login = () => {
 
     return (
         <div id='login-screen'>
-            <div id='login-div'>
-                <h1 id='login-headline'>Login</h1>
-                <form onSubmit={handleSubmit}>
-                    <label className='login-labels'>Email:</label><br />
-                    <input className="login-input" type='email' name='email' onChange={handleChange} value={userData.email} /><br />
-                    <label className='login-labels' >Password:</label><br />
-                    <input className="login-input" type='password' name='password' onChange={handleChange} value={userData.password} /><br />
-                    <input className="login-input-btn" type='submit' value="Login" />
-                </form>
-                <p id='login-last'>If you are a new user <b onClick={() => redirect("/register")}>Register</b></p>
-            </div>
+            {loader ? <div className="login-loader"></div> :
+                <div id='login-div'>
+                    <h1 id='login-headline'>Login</h1>
+                    <form onSubmit={handleSubmit}>
+                        <label className='login-labels'>Email:</label><br />
+                        <input className="login-input" type='email' name='email' onChange={handleChange} value={userData.email} /><br />
+                        <label className='login-labels' >Password:</label><br />
+                        <input className="login-input" type='password' name='password' onChange={handleChange} value={userData.password} /><br />
+                        <input className="login-input-btn" type='submit' value="Login" />
+                    </form>
+                    <p id='login-last'>If you are a new user <b onClick={() => redirect("/register")}>Register</b></p>
+                </div>}
         </div>
     )
 }
