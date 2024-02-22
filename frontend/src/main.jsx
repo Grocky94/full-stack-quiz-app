@@ -6,10 +6,11 @@ import QuizHolder from './context/QuizHolder.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
+  // </React.StrictMode>,
   <QuizHolder>
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </QuizHolder>
-  // </React.StrictMode>,
+
 )
