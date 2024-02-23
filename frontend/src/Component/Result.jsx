@@ -40,6 +40,7 @@ const Result = () => {
     const playAgain = () => {
         setAns(0);
         setPage(1);
+        localStorage.setItem("seconds", 30);
         redirect('/Quiz')
     }
     return (
