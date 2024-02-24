@@ -12,7 +12,11 @@ const Navbar = () => {
     const [openSlider, setOpenSlider] = useState(false)
     const logOut = () => {
         const token = JSON.parse(localStorage.getItem('token'))
+const seconds = JSON.parse(localStorage.getItem('seconds'))
         if (token) {
+if(seconds){
+            localStorage.removeItem("seconds")
+}
             localStorage.removeItem("token")
             dispatch({
                 type: "Logout"
